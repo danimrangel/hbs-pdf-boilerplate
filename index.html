@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        /* Add Reset */
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 10px;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: "";
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: "Source Sans Pro";
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        img {
+            height: auto;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        /* Add Custom Font in Base64 */
+        @font-face {
+            font-family: "my-font";
+            /* Base64 code */
+            src: "";
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        /* Set page size and margins */
+        @page {
+            size: A4;
+            margin: 40px;
+        }
+
+        /* Basic stlye */
+        .header,
+        .header-space {
+            height: 260px;
+            width: 100%;
+        }
+
+        .footer,
+        .footer-space {
+            height: 80px;
+            width: 100%;
+        }
+
+        /* Dont remove */
+        .header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            padding: 0px 48px 12px;
+        }
+
+        .footer {
+            padding: 12px 48px 0px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* /// */
+
+        .content {
+            width: 100%;
+            padding: 42px 42px;
+        }
+
+        .header-wrapper {
+            padding: 16px;
+            border-bottom: 1px solid #99d4f0;
+        }
+
+        .footer-wrapper {
+            border-top: 1px solid #99d4f0;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            line-height: 20px;
+        }
+
+        .logo {
+            width: 80px;
+        }
+
+        .content-table {
+            width: 100%;
+            font-size: 10px;
+            line-height: 20px;
+            margin-bottom: 42px;
+        }
+
+        .content-table thead {
+            background: #dadada;
+            font-weight: 600;
+        }
+
+        .content-table td {
+            padding: 8px;
+        }
+
+        .content-table tr td {
+            padding: 8px;
+            border-bottom: 1px solid #dadada;
+        }
+
+        .table-description {
+            width: 300px;
+        }
+
+        .top-wrapper {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 42px;
+        }
+
+        .top-wrapper.resume {
+            margin-top: 42px;
+            padding-top: 24px;
+            border-top: 1px solid #99d4f0;
+        }
+
+        .top-wrapper-side {
+            width: calc(50% - 24px);
+            margin-top: 24px;
+        }
+
+        .top-wrapper-side.right {
+            width: calc(70% - 24px) !important;
+        }
+
+        .item-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            line-height: 20px;
+        }
+
+        .item-info.total {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        .item-info-title {
+            width: 10%;
+            font-weight: 600;
+            min-width: 100px;
+        }
+
+        .item-info-text {
+            width: 60%;
+        }
+
+        .resume .item-info-text {
+            text-align: right;
+        }
+
+        .item-info-text.area {
+            border: 1px solid #dadada;
+            padding: 8px;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            width: 100%;
+        }
+
+        .desc {
+            white-space: nowrap;
+            text-align: left;
+            display: flex
+        }
+    </style>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    <div class="header-space">&nbsp;</div>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="content">
+                        <!-- Page 1 -->
+
+                        <table class="content-table">
+                            <thead>
+                                <td>Actividad</td>
+                                <td class="table-description">Descripción</td>
+                                <td>Garan</td>
+                                <td>Fe/No</td>
+                                <td>Cantidad</td>
+                                <td>Importe</td>
+                                <td>Base</td>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="desc" style="font-width: bold;">Daños Propios</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="desc">FONTANERIA</td>
+                                    <td>60.02 Picado en techo con escayola o enlucido M2 - F121 con festividad/nocturnidad</td>
+                                    <td>BA</td>
+                                    <td>Si</td>
+                                    <td>100,00</td>
+                                    <td>15,38</td>
+                                    <td>1538,00</td>
+                                </tr>
+                                <tr>
+                                    <td class="desc">ALBAÑILERIA</td>
+                                    <td>61.03 Picado en suelos con gres o terrazo o similares M2 - A130</td>
+                                    <td>BA</td>
+                                    <td>No</td>
+                                    <td>40,00</td>
+                                    <td>10,30</td>
+                                    <td>412,00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="top-wrapper resume">
+                            <div class="top-wrapper-side">
+                                <div class="item-info">
+                                    <div class="item-info-title">
+                                        <p>Parcial:</p>
+                                    </div>
+                                    <div class="item-info-text">
+                                        <p>1950,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="content-table">
+                            <thead>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="desc" style="font-width: bold;">Responsabilidad Civil</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="desc">ALBAÑILERIA</td>
+                                    <td>61.07 Tapar hueco en suelo con solado, parte proporcional de rodapié incluida hasta 1/2 M2 - A210</td>
+                                    <td>BA</td>
+                                    <td>No</td>
+                                    <td>1,00</td>
+                                    <td>51,08</td>
+                                    <td>51,08</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="top-wrapper resume">
+                            <div class="top-wrapper-side">
+                                <div class="item-info">
+                                    <div class="item-info-title">
+                                        <p>Parcial:</p>
+                                    </div>
+                                    <div class="item-info-text">
+                                        <p>51,08</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="content-table">
+                            <thead>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="desc" style="font-width: bold;">Franquicia</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="desc">OTROS</td>
+                                    <td>miguel con festividad/nocturnidad</td>
+                                    <td>MO</td>
+                                    <td>Si</td>
+                                    <td>3,00</td>
+                                    <td>35,25</td>
+                                    <td>105,75</td>
+                                </tr>
+                                <tr>
+                                    <td class="desc">OTROS</td>
+                                    <td>miguel probando con festividad/nocturnidad</td>
+                                    <td>MO</td>
+                                    <td>Si</td>
+                                    <td>8,00</td>
+                                    <td>19,42</td>
+                                    <td>155,36</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="top-wrapper resume">
+                            <div class="top-wrapper-side">
+                                <div class="item-info">
+                                    <div class="item-info-title">
+                                        <p>Parcial:</p>
+                                    </div>
+                                    <div class="item-info-text">
+                                        <p>261,11</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Your content. -->
+
+                        <div class="top-wrapper resume">
+                            <div class="top-wrapper-side">
+                                <div class="item-info">
+                                    <div class="item-info-title">
+                                        <p class="desc">Descripición Presupuesto:</p>
+                                    </div>
+                                    <div class="item-info-text">
+                                        <p>Factura 1</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="top-wrapper-side">
+                                <div class="item-info">
+                                    <div class="item-info-title">
+                                        <p>Total:</p>
+                                    </div>
+                                    <div class="item-info-text">
+                                        <p>2262,19</p>
+                                    </div>
+                                </div>
+                                <div class="item-info">
+                                    <div class="item-info-title">
+                                        <p>Total IVA (16,00%):</p>
+                                    </div>
+                                    <div class="item-info-text">
+                                        <p>361,95</p>
+                                    </div>
+                                </div>
+                                <div class="item-info">
+                                    <div class="item-info-title">
+                                        <p>IRPF (0,00):</p>
+                                    </div>
+                                    <div class="item-info-text">
+                                        <p>0,00</p>
+                                    </div>
+                                </div>
+                                <div class="item-info total">
+                                    <div class="item-info-title">
+                                        <p>Total:</p>
+                                    </div>
+                                    <div class="item-info-text">
+                                        <p>2624,14</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <div class="footer-space">&nbsp;</div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="header">
+        <!-- Your header. -->
+        <div class="header-wrapper">
+            <div class="logo">
+                <img src="data:image/png;base64,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"
+                    alt="" />
+            </div>
+        </div>
+        <div class="top-wrapper">
+            <div class="top-wrapper-side">
+                <div class="item-info">
+                    <div class="item-info-title">
+                        <p>Presupuesto:</p>
+                    </div>
+                    <div class="item-info-text">
+                        <p>1</p>
+                    </div>
+                </div>
+                <div class="item-info">
+                    <div class="item-info-title">
+                        <p>Fecha Presupuesto:</p>
+                    </div>
+                    <div class="item-info-text">
+                        <p>2022-04-08T05:00:00</p>
+                    </div>
+                </div>
+                <div class="item-info">
+                    <div class="item-info-title">
+                        <p>Visado Pericial:</p>
+                    </div>
+                    <div class="item-info-text">
+                        <p>Si</p>
+                    </div>
+                </div>
+                <div class="item-info">
+                    <div class="item-info-title">
+                        <p>Ref. Asitur:</p>
+                    </div>
+                    <div class="item-info-text">
+                        <p>2022/777</p>
+                    </div>
+                </div>
+                <div class="item-info">
+                    <div class="item-info-title">
+                        <p>Compañía:</p>
+                    </div>
+                    <div class="item-info-text">
+                        <p>Ges Seguros</p>
+                    </div>
+                </div>
+                <div class="item-info">
+                    <div class="item-info-title">
+                        <p>Ref. Compañía:</p>
+                    </div>
+                    <div class="item-info-text">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item-info">
+                    <div class="item-info-title">
+                        <p>Núm. Póliza:</p>
+                    </div>
+                    <div class="item-info-text">
+                        <p>1937251591</p>
+                    </div>
+                </div>
+            </div>
+            <div class="top-wrapper-side right">
+                <div class="item-info">
+                    <div class="item-info-title">
+                        <p>Colaborador:</p>
+                    </div>
+                    <div class="item-info-text">
+                        <p>xxxx - C/ Chiva 27 bajo 46018 VALENCIA VALENCIA - 0000001R</p>
+                    </div>
+                </div>
+                <div class="item-info">
+                    <div class="item-info-text area">
+                        <p>ASITUR ASISTENCIA S.A.AVDA.DE LOS ENCUARTES 21 28760 TRES CANTOS(MADRID) CIF: A28749976</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <!-- Your Footer. -->
+        <div class="footer-wrapper">
+            <div class="logo">
+                <img src="data:image/png;base64,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"
+                    alt="" />
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

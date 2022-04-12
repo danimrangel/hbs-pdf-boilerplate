@@ -1,0 +1,98 @@
+{
+  "documentCode": null,
+  "provider": "xxxx - C/ Chiva 27 bajo 46018 VALENCIA VALENCIA",
+  "providerCif": "0000001R",
+  "header": "ASITUR ASISTENCIA S.A.AVDA.DE LOS ENCUARTES 21 28760 TRES CANTOS(MADRID) CIF: A28749976",
+  "invoiceNumber": "1",
+  "invoiceDate": "2022-04-08T05:00:00",
+  "expertVisa": true,
+  "expedient": "2022/777",
+  "company": "Ges Seguros",
+  "companyReference": null,
+  "policyNumber": "1937251591",
+  "invoiceDescription": "Factura 1",
+  "irpf": 0.0,
+  "tax": 16.0,
+  "linesTotal": 2262.19,
+  "irpfTotal": 0.0,
+  "ivaTotal": 361.95,
+  "invoiceTotal": 2624.14,
+  "lineGroups": [
+      {
+          "damageLineType": "1",
+          "damageLineTypeDescription": "Daños Propios",
+          "parcialBase": 1950.0,
+          "lines": [
+              {
+                  "damageLineType": null,
+                  "damageLineTypeDescription": null,
+                  "activity": "FONTANERIA",
+                  "lineDescription": "60.02 Picado en techo con escayola o enlucido M2 - F121 con festividad/nocturnidad",
+                  "workMaterial": "BA",
+                  "urgent": true,
+                  "quantity": 100.0,
+                  "fixedAmount": 15.38,
+                  "lineTotal": 1538.0
+              },
+              {
+                  "damageLineType": null,
+                  "damageLineTypeDescription": null,
+                  "activity": "ALBAÑILERIA",
+                  "lineDescription": "61.03 Picado en suelos con gres o terrazo o similares M2 - A130",
+                  "workMaterial": "BA",
+                  "urgent": false,
+                  "quantity": 40.0,
+                  "fixedAmount": 10.3,
+                  "lineTotal": 412.0
+              }
+          ]
+      },
+      {
+          "damageLineType": "2",
+          "damageLineTypeDescription": "Responsabilidad Civil",
+          "parcialBase": 51.08,
+          "lines": [
+              {
+                  "damageLineType": null,
+                  "damageLineTypeDescription": null,
+                  "activity": "ALBAÑILERIA",
+                  "lineDescription": "61.07 Tapar hueco en suelo con solado, parte proporcional de rodapié incluida hasta 1/2 M2 - A210",
+                  "workMaterial": "BA",
+                  "urgent": false,
+                  "quantity": 1.0,
+                  "fixedAmount": 51.08,
+                  "lineTotal": 51.08
+              }
+          ]
+      },
+      {
+          "damageLineType": "3",
+          "damageLineTypeDescription": "Franquicia",
+          "parcialBase": 261.11,
+          "lines": [
+              {
+                  "damageLineType": null,
+                  "damageLineTypeDescription": null,
+                  "activity": "OTROS",
+                  "lineDescription": "miguel con festividad/nocturnidad",
+                  "workMaterial": "MO",
+                  "urgent": true,
+                  "quantity": 3.0,
+                  "fixedAmount": 35.25,
+                  "lineTotal": 105.75
+              },
+              {
+                  "damageLineType": null,
+                  "damageLineTypeDescription": null,
+                  "activity": "OTROS",
+                  "lineDescription": "miguel probando con festividad/nocturnidad",
+                  "workMaterial": "MO",
+                  "urgent": true,
+                  "quantity": 8.0,
+                  "fixedAmount": 19.42,
+                  "lineTotal": 155.36
+              }
+          ]
+      }
+  ]
+}
