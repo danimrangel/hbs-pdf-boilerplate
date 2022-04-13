@@ -35,11 +35,11 @@ const ParseBooleansAsStrings = (
   value: boolean,
 ): Answer => (value ? Answer.S : Answer.N);
 
-//@ts-ignore explicit
 const ifCondition = (
   v1: string,
   operator: string,
   v2: string,
+  //@ts-ignore explicit
   options: any,
 ) => {
   switch (operator) {
@@ -85,5 +85,12 @@ const page = await browser.newPage();
 await page.goto(website, {
   waitUntil: "networkidle2",
 });
+
+try {
+  Deno.remove("./generated.pdf");
+} catch (_e) {
+  console.log("No file found...");
+}
+
 await page.pdf({ path: "generated.pdf" });
 await browser.close();
