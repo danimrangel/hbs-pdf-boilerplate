@@ -9,6 +9,8 @@ import {
 } from "https://deno.land/std@0.134.0/path/mod.ts";
 import "https://deno.land/x/dotenv/load.ts";
 
+import { paginationFooter } from './utils/footer.ts'
+
 import data from "./data.json" assert { type: "json" };
 
 const __dirname = dirname(fromFileUrl(import.meta.url));
@@ -92,5 +94,11 @@ try {
   console.log("No file found...");
 }
 
-await page.pdf({ path: "generated.pdf" });
+await page.pdf({
+  path: "generated.pdf",
+  format: "a4",
+  displayHeaderFooter: true,
+  headerTemplate: '<div></div>',
+  footerTemplate: paginationFooter
+});
 await browser.close();

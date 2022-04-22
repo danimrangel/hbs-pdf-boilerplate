@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "f88718d4-c45c-43f3-9baa-b32e71392f54",
+		"name": "Conecta PDF Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cloud",
+			"item": [
+				{
+					"name": "Liveness",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/Ivan/Downloads/variety_ES_roman_aaa.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{endpoint}}/healthy",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"healthy"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoices",
+			"item": [
+				{
+					"name": "Lunas' Invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"colaborador\": \"GARAJE RAMARY, S.A.\",\r\n  \"cifColaborador\": \"A79003513\",\r\n  \"numeroFactura\": \"3A/253-20\",\r\n  \"fechaFactura\": \"2020-03-14T00:00:00\",\r\n  \"expediente\": \"202000219171\",\r\n  \"entidad\": \"Reale\",\r\n  \"poliza\": \"3021700114366\",\r\n  \"asegurado\": \"BEATRIZ AVIAL ESCOBAR\",\r\n  \"impuesto\": 21,\r\n  \"matricula\": \"1593HMH\",\r\n  \"marca\": \"VOLKSWAGEN\",\r\n  \"bastidor\": \"WVGZZZ5NZCW071080\",\r\n  \"modelo\": \"TIGUAN\",\r\n  \"descripcionFactura\": null,\r\n  \"cabecera\": null,\r\n  \"totalSumaLineas\": 574.4,\r\n  \"sumaIVA\": 120.624,\r\n  \"totalFactura\": 695.024,\r\n  \"lineas\": [\r\n    {\r\n      \"cantidad\": 1,\r\n      \"descripcionDesglose\": \"Materiales\",\r\n      \"descripcionLinea\": \"PARABRISAS VERDE C/SE+ADAS\",\r\n      \"referenciaPieza\": \"5N0845011NNVB\",\r\n      \"importeUnitario\": 350.47,\r\n      \"porcentajeDescuento\": 0,\r\n      \"sumaLinea\": 350.47\r\n    },\r\n    {\r\n      \"cantidad\": 1,\r\n      \"descripcionDesglose\": \"Mano de Obra\",\r\n      \"descripcionLinea\": \"MONTAJE Y SELLADO PARABRISAS TODO TERR.\",\r\n      \"referenciaPieza\": \"\",\r\n      \"importeUnitario\": 105.61,\r\n      \"porcentajeDescuento\": 0.3,\r\n      \"sumaLinea\": 73.93\r\n    },\r\n    {\r\n      \"cantidad\": 1,\r\n      \"descripcionDesglose\": \"Mano de Obra\",\r\n      \"descripcionLinea\": \"CALIBRACION SISTEMA ADAS\",\r\n      \"referenciaPieza\": \"\",\r\n      \"importeUnitario\": 150,\r\n      \"porcentajeDescuento\": 0,\r\n      \"sumaLinea\": 150\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/Lunas/Factura/descarga",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"Lunas",
+								"Factura",
+								"descarga"
+							],
+							"query": [
+								{
+									"key": "tipo",
+									"value": "factura",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trip's Invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codigoDocumento\": null,\r\n    \"colaborador\": \"ANGEL ARREGUI IRIBAR\",\r\n    \"cifColaborador\": \"C15134181\",\r\n    \"expediente\": \"201901163379\",\r\n    \"entidad\": \"Reale\",\r\n    \"poliza\": \"3021900083098\",\r\n    \"asegurado\": \"MIKEL IRURETAGOIENA AGIRREZABALAGA\",\r\n    \"matricula\": \"6644DVY\",\r\n    \"marca\": \"RENAULT\",\r\n    \"modelo\": \"LAGUNA\",\r\n    \"numeroFactura\": \"81/2020\",\r\n    \"fechaFactura\": \"2020-01-10T00:00:00\",\r\n    \"servicio\": \"GRUA\",\r\n    \"cabecera\": \"ASITUR ASISTENCIA S.A. AV DE LOS ENCUARTES 21 EDIFICIO LARIZA 28760 - TRES CANTOS(MADRID) CIF: A28749976\",\r\n    \"totalSumaLineas\": 53.02,\r\n    \"sumaIRPF\": 0,\r\n    \"sumaIVA\": 11.13,\r\n    \"totalFactura\": 64.15,\r\n    \"gruposLineas\": [\r\n        {\r\n            \"impuesto\": 21,\r\n            \"parcialBase\": 53.02,\r\n            \"parcialImpuesto\": 11.13,\r\n            \"lineas\": [\r\n                {\r\n                    \"actividad\": \"Salida Carretera Turismo\",\r\n                    \"cantidad\": 1,\r\n                    \"importeUnitario\": 33.24,\r\n                    \"nocturno\": false,\r\n                    \"festivo\": false,\r\n                    \"sumaLinea\": 33.24,\r\n                    \"totalLinea\": 40.22\r\n                },\r\n                {\r\n                    \"actividad\": \"Kilómetros Carretera Turismo\",\r\n                    \"cantidad\": 23,\r\n                    \"importeUnitario\": 0.86,\r\n                    \"nocturno\": false,\r\n                    \"festivo\": false,\r\n                    \"sumaLinea\": 19.78,\r\n                    \"totalLinea\": 23.93\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/Auto/Factura/descarga",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"Auto",
+								"Factura",
+								"descarga"
+							],
+							"query": [
+								{
+									"key": "tipo",
+									"value": "factura",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Home's Invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"colaborador\": \"REPARACIONES DE HOGAR MADRID 2014 S.L. - AVENIDA DE LOS ENCUARTES 21 08001 BARCELONA BARCELONA\",\r\n  \"cifColaborador\": \"INFOPUSH\",\r\n  \"cabecera\": \"ASITUR ASISTENCIA S.A. AVDA. DE LOS ENCUARTES 21 28760 TRES CANTOS (MADRID) CIF:A28749976\",\r\n  \"numeroFactura\": \"FACTURA_TEST_GRUPOS\",\r\n  \"fechaFactura\": \"2022-02-02T00:00:00\",\r\n  \"visadoPericial\": false,\r\n  \"expediente\": \"2021/1349\",\r\n  \"entidad\": \"BBVA ALLIANZ SEGUROS Y REASEGUROS, S.A\",\r\n  \"referenciaEntidad\": \"621821000001349\",\r\n  \"numeroPoliza\": \"62180004598182\",\r\n  \"descripcionFactura\": \"Descripcion de prueba!!!!!\",\r\n  \"irpf\": 0,\r\n  \"impuesto\": 21,\r\n  \"totalSumaLineas\": 315.54,\r\n  \"sumaIRPF\": 0,\r\n  \"sumaIVA\": 66.26,\r\n  \"totalFactura\": 381.8,\r\n  \"codigoDocumento\": null,\r\n  \"gruposLineas\": [\r\n    {\r\n      \"tipoLineaDanos\": \"1\",\r\n      \"descripcionTipoLineaDanos\": \"Daños Propios\",\r\n      \"parcialBase\": 50.92,\r\n      \"lineas\": [\r\n        {\r\n          \"actividad\": \"FONTANERIA\",\r\n          \"descripcionLinea\": \"14.01 Kilometraje (sólo ida) 31 Km a 45 Km\",\r\n          \"obraMaterial\": \"BA\",\r\n          \"urgencia\": false,\r\n          \"cantidad\": 1,\r\n          \"importeFijo\": 21.62,\r\n          \"sumaLinea\": 21.62\r\n        },\r\n        {\r\n          \"actividad\": \"FONTANERIA\",\r\n          \"descripcionLinea\": \"60.18 Reparacion de tuberia con soldadura o abrazadera tapaporos (GEBO) (GEBO) Adicional - F202\",\r\n          \"obraMaterial\": \"BA\",\r\n          \"urgencia\": false,\r\n          \"cantidad\": 1,\r\n          \"importeFijo\": 29.3,\r\n          \"sumaLinea\": 29.3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"tipoLineaDanos\": \"6\",\r\n      \"descripcionTipoLineaDanos\": \"Daños Estéticos\",\r\n      \"parcialBase\": 91.72,\r\n      \"lineas\": [\r\n        {\r\n          \"actividad\": \"FONTANERIA\",\r\n          \"descripcionLinea\": \"60.17 Reparación de válvula (bañera, lavabo, bidé, fregadero) UD - F200\",\r\n          \"obraMaterial\": \"BA\",\r\n          \"urgencia\": false,\r\n          \"cantidad\": 1,\r\n          \"importeFijo\": 50.43,\r\n          \"sumaLinea\": 50.43\r\n        },\r\n        {\r\n          \"actividad\": \"FONTANERIA\",\r\n          \"descripcionLinea\": \"75.01 Colocación de cordón de impermeabilización de la banda de bañera, ducha o fregadero 3A\",\r\n          \"obraMaterial\": \"BA\",\r\n          \"urgencia\": false,\r\n          \"cantidad\": 1,\r\n          \"importeFijo\": 41.29,\r\n          \"sumaLinea\": 41.29\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"tipoLineaDanos\": \"2\",\r\n      \"descripcionTipoLineaDanos\": \"Responsabilidad Civil\",\r\n      \"parcialBase\": 172.9,\r\n      \"lineas\": [\r\n        {\r\n          \"actividad\": \"FONTANERIA\",\r\n          \"descripcionLinea\": \"60.09 Localización fuga con detector de fugas geófono UD - F172\",\r\n          \"obraMaterial\": \"BA\",\r\n          \"urgencia\": false,\r\n          \"cantidad\": 1,\r\n          \"importeFijo\": 78.8,\r\n          \"sumaLinea\": 78.8\r\n        },\r\n        {\r\n          \"actividad\": \"FONTANERIA\",\r\n          \"descripcionLinea\": \"73.01 Alquiler de andamios, incluso traslado a obra, montaje y desmontaje hasta 2 cuerpos - X100\",\r\n          \"obraMaterial\": \"BA\",\r\n          \"urgencia\": false,\r\n          \"cantidad\": 1,\r\n          \"importeFijo\": 94.1,\r\n          \"sumaLinea\": 94.1\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/Hogar/Factura/descarga",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"Hogar",
+								"Factura",
+								"descarga"
+							],
+							"query": [
+								{
+									"key": "tipo",
+									"value": "factura",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Budgets",
+			"item": [
+				{
+					"name": "Home Budget",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codigoDocumento\": null,\r\n  \"colaborador\": \"xxxx - C/ Chiva 27 bajo 46018 VALENCIA VALENCIA\",\r\n  \"cifColaborador\": \"0000001R\",\r\n  \"cabecera\": \"ASITUR ASISTENCIA S.A.AVDA.DE LOS ENCUARTES 21 28760 TRES CANTOS(MADRID) CIF: A28749976\",\r\n  \"numeroFactura\": \"JEAN123\",\r\n  \"fechaFactura\": \"2022-03-20T04:00:00\",\r\n  \"visadoPericial\": true,\r\n  \"expediente\": \"2021/33\",\r\n  \"entidad\": \"Reale\",\r\n  \"referenciaEntidad\": null,\r\n  \"numeroPoliza\": \"8171400015034\",\r\n  \"descripcionFactura\": \"1234 Una observacion con bastantes caracteres\",\r\n  \"irpf\": 0,\r\n  \"impuesto\": 21,\r\n  \"totalSumaLineas\": 5311.69,\r\n  \"sumaIRPF\": 0,\r\n  \"sumaIVA\": 1115.45,\r\n  \"totalFactura\": 6427.14,\r\n  \"gruposLineas\": [\r\n    {\r\n      \"tipoLineaDanos\": \"1\",\r\n      \"descripcionTipoLineaDanos\": \"Daños Propios\",\r\n      \"parcialBase\": 134.64,\r\n      \"lineas\": [\r\n        {\r\n          \"tipoLineaDanos\": null,\r\n          \"descripcionTipoLineaDanos\": null,\r\n          \"actividad\": \"ALBAÑILERIA\",\r\n          \"descripcionLinea\": \"14.01 Kilometraje (sólo ida) Por Encima 61 Km\",\r\n          \"obraMaterial\": \"MAT\",\r\n          \"urgencia\": false,\r\n          \"cantidad\": 78,\r\n          \"importeFijo\": 0.59,\r\n          \"sumaLinea\": 46.02\r\n        },\r\n        {\r\n          \"tipoLineaDanos\": null,\r\n          \"descripcionTipoLineaDanos\": null,\r\n          \"actividad\": \"PINTURA\",\r\n          \"descripcionLinea\": \"63.07 Tixotrópica o esmalte Primeros 10M2 - P210\",\r\n          \"obraMaterial\": \"MO\",\r\n          \"urgencia\": false,\r\n          \"cantidad\": 1,\r\n          \"importeFijo\": 88.62,\r\n          \"sumaLinea\": 88.62\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"tipoLineaDanos\": \"2\",\r\n      \"descripcionTipoLineaDanos\": \"Responsabilidad Civil\",\r\n      \"parcialBase\": 5209.23,\r\n      \"lineas\": [\r\n        {\r\n          \"tipoLineaDanos\": null,\r\n          \"descripcionTipoLineaDanos\": null,\r\n          \"actividad\": \"FONTANERIA\",\r\n          \"descripcionLinea\": \"60.07 Excavación de zanja M3 - F170 con festividad/nocturnidad\",\r\n          \"obraMaterial\": \"MAT\",\r\n          \"urgencia\": true,\r\n          \"cantidad\": 48.52,\r\n          \"importeFijo\": 100.98,\r\n          \"sumaLinea\": 4899.55\r\n        },\r\n        {\r\n          \"tipoLineaDanos\": null,\r\n          \"descripcionTipoLineaDanos\": null,\r\n          \"actividad\": \"PARQUETISTAS\",\r\n          \"descripcionLinea\": \"64.06 De madera de Pino, Eucalipto, Iroko o similar M2 - M150\",\r\n          \"obraMaterial\": \"MO\",\r\n          \"urgencia\": false,\r\n          \"cantidad\": 4,\r\n          \"importeFijo\": 77.42,\r\n          \"sumaLinea\": 309.68\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"tipoLineaDanos\": \"4\",\r\n      \"descripcionTipoLineaDanos\": \"Bonificación\",\r\n      \"parcialBase\": -32.18,\r\n      \"lineas\": [\r\n        {\r\n          \"tipoLineaDanos\": null,\r\n          \"descripcionTipoLineaDanos\": null,\r\n          \"actividad\": \"FONTANERIA\",\r\n          \"descripcionLinea\": \"60.01 Localización de avería en Hogar - F100\",\r\n          \"obraMaterial\": \"MO\",\r\n          \"urgencia\": false,\r\n          \"cantidad\": 1,\r\n          \"importeFijo\": -32.18,\r\n          \"sumaLinea\": -32.18\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/Hogar/Presupuesto/descarga",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"Hogar",
+								"Presupuesto",
+								"descarga"
+							],
+							"query": [
+								{
+									"key": "tipo",
+									"value": "factura",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
